@@ -1,10 +1,11 @@
-class Solution:
-    def checkIfPangram(self, sentence: str) -> bool:
-        l=list(sentence)
-        s=set(l)
-        l=list(s)
-        le=len(l)
-        if le>=26:
-            return True
-        else:
-            return False
+class Solution {
+public:
+    bool checkIfPangram(string sentence) 
+    {
+          set<char> s{sentence.begin(), sentence.end()};
+          if(s.size()==26)
+              return true;
+          else 
+              return false;
+    }
+};
