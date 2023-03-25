@@ -1,20 +1,18 @@
 class Solution {
 public:
     vector<int> rearrangeArray(vector<int>& nums) {
-        vector<int> v1,v2,ans;
-        
+        vector<int>ans(nums.size());
+        int even=0,odd=1;
         for(int i=0;i<nums.size();i++)
         {
-            if(nums[i]>0){v1.push_back(nums[i]);}
+            if(nums[i]>0){
+                ans[even]=nums[i],even+=2;
+                
+            }
             
             else{
-                v2.push_back(nums[i]);
+                ans[odd]=nums[i],odd+=2;
             }
-        }
-        for(int i=0;i<v1.size();i++)
-        {
-            ans.push_back(v1[i]);
-            ans.push_back(v2[i]);
         }
         
         return ans;
