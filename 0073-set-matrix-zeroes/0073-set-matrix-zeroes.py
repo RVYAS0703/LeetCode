@@ -3,30 +3,21 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
+        row=len(matrix)
+        column=len(matrix[0])
+        
+        zro_r=set()
+        zro_col=set()
+        
+        for i in range(row):
+            for j in range(column):
+                if matrix[i][j]==0:
+                    zro_r.add(i)
+                    zro_col.add(j)
+        for r in zro_r:
+            for j in range(column):
+                matrix[r][j]=0
                 
-        rows = len(matrix)
-        cols = len(matrix[0])
-
-        # Keep track of rows and columns to be set to 0
-        zero_rows = set()
-        zero_cols = set()
-
-        # Iterate over the matrix to find the 0 elements
-        for i in range(rows):
-            for j in range(cols):
-                if matrix[i][j] == 0:
-                    zero_rows.add(i)
-                    zero_cols.add(j)
-
-        # Set the corresponding rows and columns to 0
-        for row in zero_rows:
-            for j in range(cols):
-                matrix[row][j] = 0
-
-        for col in zero_cols:
-            for i in range(rows):
-                matrix[i][col] = 0
-
-        return matrix
-
-
+        for c in zro_col:
+            for i in range(row):
+                matrix[i][c]=0
